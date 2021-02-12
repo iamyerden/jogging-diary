@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AddRecordComponent } from './add-record/add-record.component';
 import { ResultsComponent } from './results/results.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

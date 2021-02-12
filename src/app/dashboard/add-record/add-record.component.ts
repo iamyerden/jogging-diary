@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Record} from '../../model/record';
+import {FormControl, FormGroup} from '@angular/forms';
+import {SharingService} from '../../service/sharing.service';
 
 @Component({
   selector: 'app-add-record',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddRecordComponent implements OnInit {
 
-  constructor() { }
+  recordForm = new FormGroup({
+    date: new FormControl(''),
+    distance: new FormControl(''),
+    time: new FormControl('')
+  });
+
+  constructor(private sharingService: SharingService) { }
 
   ngOnInit(): void {
   }
 
+  addRecord(): void {
+    console.log(this.recordForm.value);
+    this.sharingService.changeData(this.recordForm.value);
+  }
 }
